@@ -1,6 +1,6 @@
 {
   "name": "Blox Fruit Fake",
-  "short_name": "BF Fake",
+  "short_name": "Blox Fruit Fake",
   "start_url": "./index.html",
   "display": "fullscreen",
   "orientation": "landscape",
