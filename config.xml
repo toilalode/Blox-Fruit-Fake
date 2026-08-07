@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget id="com.bloxfruit.fake" version="2.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>Blox Fruit Fake</name>
+    <description>Game ở giai đoạn beta</description>
+    <content src="index.html" />
+
+    <preference name="Orientation" value="landscape" />
+    <preference name="Fullscreen" value="true" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="android-minSdkVersion" value="21" />
+    <preference name="BackgroundColor" value="0xff020005" />
+    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="StatusBarBackgroundColor" value="#020005" />
+    <preference name="AndroidWindowSoftInputMode" value="adjustResize" />
+
+    <icon src="icon.png" />
+    <icon density="ldpi"   src="res/icon/android/icon.png" />
+    <icon density="mdpi"   src="res/icon/android/icon.png" />
+    <icon density="hdpi"   src="res/icon/android/icon.png" />
+    <icon density="xhdpi"  src="res/icon/android/icon.png" />
+    <icon density="xxhdpi" src="res/icon/android/icon.png" />
+    <icon density="xxxhdpi" src="res/icon/android/icon.png" />
+
+    <platform name="android">
+        <preference name="Orientation" value="landscape" />
+        <preference name="Fullscreen" value="true" />
+        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application/activity[@android:name='MainActivity']">
+            <activity android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" />
+        </edit-config>
+    </platform>
+</widget>
