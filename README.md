@@ -1,4 +1,4 @@
-BLOX FRUIT FAKE — FRUIT WARRIORS
+BLOX FRUIT FAKE — WEBVIEW
 ============================
 Game hành động 2D chơi trực tiếp trên trình duyệt (HTML5 Canvas), lấy cảm hứng từ Blox Fruits — ăn Trái Ác Quỷ, luyện Mastery, biến hình, cân quái vật/Boss, quay Gacha, giao dịch và chơi cùng người khác trong phòng chung.
 
@@ -10,10 +10,10 @@ Game hành động 2D chơi trực tiếp trên trình duyệt (HTML5 Canvas), l
 
 **Chiến đấu & biến hình**
 - ⚔️ Hệ thống Trái Ác Quỷ: **Dragon** (Đông/Tây, có dạng Hybrid → Full khi đầy Fury), **Kitsune**, **Empyrean Kitsune** (chỉ có dạng Full)
-- 🗡️ Vũ khí **Dark Blade** — phần thưởng sau khi hạ Boss trong Sự Kiện Ẩn, 5 skill riêng (M1, Z, X, C, H)
+- 🗡️ Vũ khí **Dark Blade** — phần thưởng sau khi hạ Boss trong Sự Kiện Ẩn, 5 skill riêng (M1, M2, Z, X, C)
 - 👊 2 chế độ chiến đấu: **Võ Thường** & **Huyết Quỷ Thuật** — mỗi chế độ luyện Mastery **riêng biệt**, đổi qua lại không mất tiến trình
 - 📈 Mastery tách riêng theo từng loại Trái (ăn trái nào tính riêng trái đó) và theo từng lối đánh
-- 🐉 Boss theo cốt truyện: **Long Vương** (6 skill, ultimate QTE ở ≤15% HP) và Boss trong Sự Kiện Ẩn ở đảo **Cửu Vĩ**
+- 🐉 Boss: **Long Vương** (6 skill, ultimate QTE ở ≤15% HP) và Boss trong Sự Kiện Ẩn ở đảo **Cửu Vĩ**
 - 🎯 Bộ đếm sát thương cộng dồn, tự ẩn sau vài giây không đánh trúng
 
 **Gacha, đồ đạc & giao dịch**
@@ -25,14 +25,6 @@ Game hành động 2D chơi trực tiếp trên trình duyệt (HTML5 Canvas), l
 - 🌐 Phòng chơi chung qua WebSocket (Cloudflare Durable Objects) — thấy người chơi khác theo thời gian thực
 - 💬 5 chế độ chat: Có kiểm duyệt / Không kiểm duyệt / Ẩn danh (phòng chung) + Chat Riêng (DM) + Chat Nhóm
 - 🏆 Bảng xếp hạng toàn server theo Level/Gold/số Boss đã hạ
-
-**Admin**
-- 🔑 Xác thực Admin Key thật qua server (không tin tên phiên client)
-- 🛠️ Admin Panel với đầy đủ nút lệnh (set level/tiền/HP/mana/trái/võ/vé gacha, TP đảo, ban/kick, cấp quyền admin tạm thời...) hoặc gõ lệnh `/...` trực tiếp trong ô chat
-- 🌍 Bật/tắt sự kiện toàn server (x50 sát thương, Sự Kiện Ẩn) — ai cũng thấy banner khi đang diễn ra; bật **Sự Kiện Ẩn** sẽ cho xuất hiện ngay NPC Bí Cảnh Cửu Vĩ tại Đảo Cửu Vĩ (không cần đợi đúng giờ tròn)
-- 🚫 Chống gian lận: ban theo tên/HWID/IP, kick tạm thời khỏi phòng chung
-- 🔍 Chẩn đoán & gỡ ban chi tiết: tra chính xác 1 người đang bị khoá theo tên/IP/thiết bị nào (`checkBan`), gỡ thẳng theo IP hoặc thiết bị cụ thể (`unbanIp`/`unbanDevice`) mà không cần biết tên gốc đã bị ban
-- 🛡️ **Admin được kháng ban & kháng kick**: không ai (kể cả admin khác) có thể ban/kick một tài khoản đang nằm trong danh sách admin (cố định hoặc được cấp tạm thời) — server chặn thẳng ở lệnh, không chỉ ẩn ở giao diện
 
 **Trải nghiệm chung**
 - ⚙️ Bảng Cài Đặt đầy đủ: Zoom camera, FPS/Ping, vị trí Joystick, độ trong suốt nút, rung haptic, auto-save, xuất/nhập Save
@@ -63,11 +55,8 @@ Game hành động 2D chơi trực tiếp trên trình duyệt (HTML5 Canvas), l
 ```
 Blox-Fruit-Fake/
 ├── index.html         # Toàn bộ game (1 file HTML duy nhất, tự nhận diện môi trường online/app đóng gói)
-├── worker.js           # Backend Cloudflare Worker (API + WebSocket + Durable Objects)
-├── wrangler.toml       # Cấu hình deploy Worker (bindings KV/Durable Objects, secret ADMIN_KEY)
 ├── sw.js                # Service Worker — cache offline cho bản web
 ├── manifest.json        # Khai báo PWA
-├── config.xml            # Cấu hình build app native (Cordova)
 ├── icon.png               # Icon gốc cho app native
 └── icons/                  # Icon nhiều kích thước cho PWA (36 → 512px)
 ```
@@ -118,7 +107,6 @@ Chỉ các tên phiên trong danh sách admin cố định (**"toilalode"** và 
 
 Game đang trong giai đoạn phát triển/beta, các hệ thống gameplay (skill, boss, mastery, sự kiện...) sẽ còn tiếp tục được cập nhật.
 
-**Cập nhật gần nhất:** admin được kháng ban/kick (server-side); thêm công cụ chẩn đoán & gỡ ban theo IP/thiết bị (`checkBan`/`unbanIp`/`unbanDevice`); sửa lỗi bật "Sự Kiện Ẩn" không làm NPC Bí Cảnh Cửu Vĩ xuất hiện ngoài khung giờ tròn.
 
 Khi cập nhật `index.html`/`manifest.json`/icon, nhớ tăng số phiên bản `CACHE_NAME` trong `sw.js` (ví dụ `v2` → `v3`) để trình duyệt người chơi tự tải lại bản mới thay vì dùng cache cũ.
 
