@@ -1,6 +1,6 @@
 // sw.js — Cache trang để chơi được OFFLINE khi mất mạng (dùng cho bản index.html ONLINE / GitHub Pages).
 // Đổi CACHE_NAME mỗi lần bạn cập nhật index.html/manifest/icon để trình duyệt lấy bản mới thay vì bản cache cũ.
-const CACHE_NAME = 'blox-fruit-fake-v18';
+const CACHE_NAME = 'blox-fruit-fake-v19';
 const FILES_TO_CACHE = [
   './',
   './index.html',
