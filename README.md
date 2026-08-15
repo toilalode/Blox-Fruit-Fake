@@ -2,8 +2,10 @@ BLOX FRUIT FAKE — WEBVIEW
 ============================
 Game hành động 2D chơi trực tiếp trên trình duyệt (HTML5 Canvas), lấy cảm hứng từ Blox Fruits — ăn Trái Ác Quỷ, luyện Mastery, biến hình, cân quái vật/Boss, quay Gacha, giao dịch, PvP Arena, Guild và chơi cùng người khác trong phòng chung.
 
-🔗 **Chơi ngay:** https://blox-fruit-fake.netlify.app/
-
+🔗 **Chơi ngay:**
+https://blox-fruit-fake.netlify.app/
+             hoặc tại 
+https://toilalode.github.io/Blox-Fruit-Fake/
 ---
 
 ## ✨ Tính năng chính
