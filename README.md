@@ -8,35 +8,6 @@ https://blox-fruit-fake.netlify.app/
 https://toilalode.github.io/Blox-Fruit-Fake/
 ---
 
-## ✨ Tính năng chính
-
-**Chiến đấu & biến hình**
-- ⚔️ Hệ thống Trái Ác Quỷ: **Dragon** (Đông/Tây, có dạng Hybrid → Full khi đầy Fury), **Kitsune**, **Empyrean Kitsune** (chỉ có dạng Full)
-- 🗡️ Vũ khí **Dark Blade**, 2 phiên bản:
-  - **Dark Blade Event** — phần thưởng khi cả nhóm hạ Boss Long Vương ở Sự Kiện Ẩn (đảo Cửu Vĩ), đủ M1/Z/X/C/M2, hệ số nhân hitbox/damage riêng, C nâng cấp lưỡi trắng
-  - **Dark Blade** (thường) — mua trong Cửa Hàng bằng Gold, chỉ có M1/Z/X, không C/M2, không hệ số nhân đặc biệt
-- 👊 2 chế độ chiến đấu: **Võ Thường** & **Huyết Quỷ Thuật** — mỗi chế độ luyện Mastery **riêng biệt**, đổi qua lại không mất tiến trình
-- 📈 Mastery tách riêng theo từng loại Trái (ăn trái nào tính riêng trái đó) và theo từng lối đánh
-- 🐉 Boss: **Long Vương** (6 skill, ultimate QTE ở ≤15% HP) và Boss **Cửu Vĩ Hồ Ly Vương** ở Sự Kiện Ẩn (đảo Cửu Vĩ)
-- 🎯 Bộ đếm sát thương cộng dồn, tự ẩn sau vài giây không đánh trúng
-
-**Gacha, đồ đạc & giao dịch**
-- 🎰 Gacha quay Trái Ác Quỷ ngẫu nhiên, có lượt miễn phí + trả tiền khi hết lượt
-- 🎒 Hệ thống Balo Tạm Thời (trái đang cầm, mất khi thoát) và Balo Lưu Trữ (rương, lưu vĩnh viễn)
-- 🔁 Trade 2 chiều: xem trước đồ của nhau (trái/tiền/kiếm/súng) rồi mới xác nhận — gồm cả tặng trực tiếp (gift) và tạo đề nghị trao đổi (offer)
-- 💰 Bán vật phẩm lấy Gold theo bảng giá server quy định (`/item/sell`)
-
-**Nhiều người chơi**
-- 🌐 Phòng chơi chung qua WebSocket (Cloudflare Durable Objects) — thấy người chơi khác theo thời gian thực
-- 💬 5 chế độ chat: Có kiểm duyệt / Không kiểm duyệt / Ẩn danh (phòng chung) + Chat Riêng (DM) + Chat Nhóm
-- 🏆 Bảng xếp hạng toàn server theo Level/Gold/số Boss đã hạ (có thể bật Ẩn danh trên bảng xếp hạng)
-- ⚔️ **Đấu trường (Arena PvP)**: thách đấu người chơi khác, server tính sát thương dựa trên chỉ số thật (không tin số client gửi lên), có forfeit
-- 🛡️ **Guild**: tạo/giải tán/mời/kick/rời/đổi role, Guild XP cộng dồn từ chiến thắng PvP, bảng xếp hạng Guild riêng
-- 🎫 **Season Pass**: XP theo mùa, 2 track thưởng Free/Premium, admin cấu hình/reset mùa
-
-**Trải nghiệm chung**
-- ⚙️ Bảng Cài Đặt đầy đủ: Zoom camera, FPS/Ping, vị trí Joystick, độ trong suốt nút, rung haptic, auto-save, xuất/nhập Save
-- 📴 Tự động chuyển **Offline** khi mất mạng — chơi tiếp bình thường, không mất dữ liệu, tự đồng bộ lại khi có mạng
 - 📱 Hỗ trợ cài như PWA (thêm vào màn hình chính) và đóng gói thành app Android
 - 📲 Thiết kế mobile-first, chơi hoàn toàn bằng cảm ứng
 
@@ -67,12 +38,16 @@ https://toilalode.github.io/Blox-Fruit-Fake/
 ```
 Blox-Fruit-Fake/
 ├── index.html         # Toàn bộ game (1 file HTML duy nhất, tự nhận diện môi trường online/app đóng gói)
-├── worker.js           # Cloudflare Worker — toàn bộ backend API + Durable Objects
-├── wrangler.toml        # Cấu hình deploy Worker (KV binding, Durable Objects)
 ├── sw.js                # Service Worker — cache offline cho bản web
 ├── manifest.json        # Khai báo PWA
 ├── icon.png               # Icon gốc cho app native
 └── icons/                  # Icon nhiều kích thước cho PWA (36 → 512px)
+```
+
+```
+Server-Blox-Fruit-Fake
+├── worker.js           # Cloudflare Worker — toàn bộ backend API + Durable Objects
+├── wrangler.toml        # Cấu hình deploy Worker (KV binding, Durable Objects)
 ```
 
 ---
@@ -104,18 +79,6 @@ Cấu hình bindings (KV `GAME_DATA`, Durable Objects `ROOM`/`GLOBAL`/`GUILD`) �
 ## 📦 Đóng gói thành app Android
 
 File `index.html` tự nhận diện khi chạy trong app đóng gói (`file://`, Cordova/Capacitor) và **tự bỏ qua** Service Worker — chỉ cần copy `index.html` vào thư mục `www/` của project build (dùng `config.xml` đính kèm), không cần chỉnh sửa gì thêm.
-
----
-
-## 🔐 Admin
-
-Chỉ các tên phiên trong danh sách admin cố định (**"toilalode"** và các tên dự phòng đã đăng ký khác) mới có thể mở khoá Admin Panel. Khi phát hiện phiên đang dùng 1 trong các tên này, game sẽ hiện popup yêu cầu nhập **Admin Key** (mật khẩu thật, lưu trên server qua secret `ADMIN_KEY`) — nhập đúng mới dùng được lệnh admin/sự kiện toàn server. Có thể cấp quyền admin tạm thời (giới hạn lệnh) cho người chơi khác qua lệnh `/addplayer`.
-
-**Lệnh admin có sẵn** (qua `/admin/command`, thao tác trực tiếp lên save data thật trong KV): `setLevel`, `setStat`, `setMoney`, `setFightingStyle`, `setFruit`, `tpIsland`, `setCamera`, `setHp`, `setMana`, `setGachaTickets`, `addFruitBag`, `addFruitTemp`, `ban`, `banHwid`, `unban`, `checkBan`, `unbanIp`, `unbanDevice`, `kick`, `unkick`, `addTempAdmin`, `removeTempAdmin`, `addEvent`, `broadcast`, `giveAll`, `deleteAccount`.
-
-**Miễn nhiễm ban/kick:** mọi tài khoản admin (cố định hoặc tạm thời) đều được server tự động bỏ qua khi có lệnh `ban`/`banHwid`/`kick` nhắm vào — kể cả khi lệnh đó đến từ 1 admin khác. Việc này được kiểm tra ở phía server (`worker.js`), không phải chỉ ẩn nút trên giao diện, nên không thể bị lách qua bằng cách gọi thẳng API. Nếu 1 admin từng bị ban/kick trước khi được cấp quyền, lệnh admin tiếp theo sẽ tự bỏ qua các khoá cũ đó (không cần unban thủ công).
-
-**Chẩn đoán ban:** dùng nút 🔍 **Tra ban** (hoặc lệnh `/checkban <tên>`) trong Admin Panel để xem chính xác 1 người đang bị khoá theo tên, IP hay thiết bị (deviceId) — hữu ích khi 2 tài khoản khác tên nhưng cùng máy/mạng vô tình dính ban chéo do `banHwid`. Gỡ thẳng theo IP/thiết bị cụ thể bằng `/unbanip <ip>` hoặc `/unbandevice <deviceId>` mà không cần biết tên tài khoản gốc đã bị ban.
 
 ---
 
