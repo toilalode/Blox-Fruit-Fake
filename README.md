@@ -4,7 +4,7 @@ Game hành động 2D chơi trực tiếp trên trình duyệt (HTML5 Canvas), l
 
 🔗 **Chơi ngay:**
 - https://toilalode.github.io/Blox-Fruit-Fake/
-**Trường hợp dự phòng:**
+- **Trường hợp dự phòng:**
 - https://blox-fruit-fake.netlify.app/
 - hoặc tại
 - https://Blox-Fruit-Fake.ai.studio
