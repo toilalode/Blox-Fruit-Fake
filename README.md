@@ -45,7 +45,7 @@ Blox-Fruit-Fake/
 ```
 
 ```
-Server-Blox-Fruit-Fake
+Server-Blox-Fruit-Fake/
 ├── worker.js           # Cloudflare Worker — toàn bộ backend API + Durable Objects
 ├── wrangler.toml        # Cấu hình deploy Worker (KV binding, Durable Objects)
 ```
