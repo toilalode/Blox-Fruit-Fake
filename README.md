@@ -70,6 +70,7 @@ Sau đó mở `http://localhost:8080` trên trình duyệt.
 
 ```bash
 npm install -g wrangler
+wrangler login -- device
 wrangler login
 wrangler secret put ADMIN_KEY      # đặt mật khẩu admin thật, chỉ server biết
 wrangler deploy
