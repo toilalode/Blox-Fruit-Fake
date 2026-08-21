@@ -1,0 +1,26 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/app/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# File APK/AAB build ra (dù đã nằm trong /app/build ở trên, thêm dòng riêng để
+# phòng khi ai đó copy file .apk/.aab ra thư mục khác rồi lỡ git add nhầm)
+*.apk
+*.aab
+
+# Không bao giờ commit keystore và thông tin ký app thật
+keystore.properties
+*.keystore
+*.jks
+
+# File tạm sinh ra khi workflow build.yml (.github/workflows) giải mã keystore
+# từ GitHub Secret lúc build release trên CI — chỉ tồn tại trong workspace của
+# runner, không bao giờ nên có ở máy dev/commit vào repo.
+godhunter-release.keystore
