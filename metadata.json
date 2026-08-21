@@ -1,0 +1,8 @@
+{
+  "name": "Blox Fruit Fake",
+  "description": "2D action browser game inspired by Blox Fruits with devil fruits, mastery progression, bosses, gacha, and multiplayer arena.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
