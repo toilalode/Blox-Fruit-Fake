@@ -6,7 +6,9 @@ Game hành động 2D chơi trực tiếp trên trình duyệt (HTML5 Canvas), l
 - https://toilalode.github.io/Blox-Fruit-Fake/
 - **Trường hợp dự phòng:**
 - https://blox-fruit-fake.netlify.app/ ( có thể cập nhật ít thông cảm)
-             
+
+- **Tải APK nếu lười
+- https://github.com/toilalode/Game-Apk/raw/refs/heads/main/Blox-Fruit-Fake.apk
 ---
 
 - 📱 Hỗ trợ cài như PWA (thêm vào màn hình chính) và đóng gói thành app Android
